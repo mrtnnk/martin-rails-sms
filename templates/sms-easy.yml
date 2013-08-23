@@ -1,10 +1,10 @@
 config:
   from_address: noreply@example.com
-
+# Loosely based on the Wikipedia page: https://en.wikipedia.org/wiki/List_of_SMS_gateways
 carriers:
   alltel:
     name: Alltel
-    value: '@message.alltel.com'
+    value: '@sms.alltel.com'
   ameritech:
     name: Ameritech
     value: '@paging.acswireless.com'
