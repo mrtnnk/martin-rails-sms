@@ -2,6 +2,8 @@ module SMSEasy
 
 	class Client
 
+		@@config = {}
+
 		# Delivers the SMS message in the form of an e-mail
 		#   sms-easy.deliver("1234567890","at&t","hello world")
 		def deliver(number, carrier, message, options = {})
@@ -20,20 +22,24 @@ module SMSEasy
 		end
 	
 		class << self
-			def config_yaml(opts = nil)
-				@@config_yaml = opts || YAML::load(File.open(File.join(File.dirname(__FILE__), '..', '..', '..', 'templates', 'sms-easy.yml')))
+			def configure(opts = nil)
+				@@config = opts || YAML::load(File.open(File.join(File.dirname(__FILE__), '..', '..', '..', 'templates', 'sms-easy.yml')))
 				# require 'pp'
-				# pp @@config_yaml
+				# pp @@@@config
 			end
 	
+			def config
+				@@config
+			end
+			
 			# Returns back a list of all carriers
 			#   SMSEasy.carriers
 			def carriers
-				config_yaml['carriers'] 
+				@@config['carriers'] 
 			end
 	
 			def from_address
-				config_yaml['config']['from_address']
+				@@config['config']['from_address']
 			end
 
 			def carrier_name(key)
