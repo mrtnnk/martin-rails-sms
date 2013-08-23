@@ -1,5 +1,3 @@
-module SMS
-  module Easy
-    VERSION = "0.0.1"
-  end
+module SMSEasy
+	VERSION = "1.2.0"
 end
