@@ -26,15 +26,12 @@ limitation.  Some of these carriers are include, Mobitel, Etisalat, T-Mobile (Ne
 
 == Setup Instructions
 
-* Install sms-easy gem
+* Install the sms-easy gem:
   
-  gem install sms-easy
+    gem install sms-easy
+
+
   
-* Add sms-easy.yml to your config folder (Rails only)
-
-  http://github.com/preston/sms-easy/blob/master/templates/sms-easy.yml
-
-* (Optional) Modify sms-easy.yml in your config folder with your reply-to e-mail address.
 
 == Numbers and Carriers
 
@@ -58,8 +55,24 @@ limitation.  Some of these carriers are include, Mobitel, Etisalat, T-Mobile (Ne
 
 == Usage
 
-      
-* Basic Ruby Use Case (non-Rails)
+* Basic Rails Configuration
+
+    # Override the default "from" address with config/initializers/sms-easy.rb
+    SMSEasy::Client.config['form_address'] = "noreply@example.com"
+
+    # Or, you can completely copy sms-easy.yml to your app (http://github.com/preston/sms-easy/blob/master/templates/sms-easy.yml), change it to your liking, and override the default configuration with:
+
+    SMSEasy::Client.configure(YAML.load(...))
+
+    # Your apps existing ActionMailer configuration will be used. :)
+
+    # Create the client
+    easy = SMSEasy::Client.new
+
+    # Deliver a simple message.
+    easy.deliver("5551234567", "verizon", "Hey!")  
+
+* Basic Ruby (non-Rails) Use Case (non-Rails)
 
     #SMSEasy will use actionmailer's default configuration, which can be overriden if needed:
     ActionMailer::Base.smtp_settings = {
@@ -81,8 +94,7 @@ limitation.  Some of these carriers are include, Mobitel, Etisalat, T-Mobile (Ne
     # Deliver a simple message.
     easy.deliver("5551234567", "verizon", "Hey!")
 
-
-    # TO set a custom from e-mail per SMS message:
+    # To set a custom from e-mail per SMS message:
     easy.deliver("5551234567", "verizon", "Sup.", :from => "bob@test.com")
 
     # You can set the maximum length of the SMS message, which is not set by default.  Most phones can only accept 128 characters.  To do this just specify the limit option.
