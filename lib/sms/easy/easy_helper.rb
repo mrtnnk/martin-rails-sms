@@ -2,7 +2,7 @@ module SMSEasyHelper
   # Returns a collection of carriers to be used in your own select tag
   #   e.g., <%= f.select :mobile_carrier, carrier_collection %>
   def carrier_collection
-    SMSEasy.carriers.sort.collect{ |carrier| [carrier[1]["name"], carrier[0]] }
+    SMSEasy::Client.carriers.sort.collect{ |carrier| [carrier[1]["name"], carrier[0]] }
   end
   
   # Returns a formatted select box filled with carriers
