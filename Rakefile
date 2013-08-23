@@ -1,23 +1,13 @@
-require 'rake'
+require "bundler/gem_tasks"
+
+
+
 require 'rake/testtask'
-require 'rake/rdoctask'
-
-desc 'Default: run unit tests.'
-task :default => :test
-
-desc 'Test the sms_fu plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.pattern = 'test/**/*_test.rb'
+ 
+Rake::TestTask.new do |t|
+  t.libs << 'lib/sms-easy'
+  t.test_files = FileList['test/lib/sms-easy/*_test.rb']
   t.verbose = true
 end
-
-desc 'Generate documentation for the sms_fu plugin.'
-Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'SmsFu'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
-
+ 
+task :default => :test

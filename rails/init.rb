@@ -1,2 +1,2 @@
-require 'sms_fu'
-ActionView::Base.send(:include, SMSFuHelper)
+require 'sms-easy'
+ActionView::Base.send(:include, SMSEasyHelper)
