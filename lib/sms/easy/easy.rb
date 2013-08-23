@@ -39,7 +39,7 @@ module SMSEasy
 			end
 	
 			def from_address
-				@@config['config']['from_address']
+				@@config['from_address']
 			end
 
 			def carrier_name(key)

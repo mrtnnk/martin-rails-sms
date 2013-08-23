@@ -1,5 +1,5 @@
-config:
-  from_address: noreply@example.com
+from_address: noreply@example.com
+
 # Loosely based on the Wikipedia page: https://en.wikipedia.org/wiki/List_of_SMS_gateways
 carriers:
   alltel:
