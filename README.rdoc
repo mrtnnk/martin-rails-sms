@@ -135,4 +135,4 @@ I want to thank the following individuals with their help with adding some patch
 
 Copyright (c) 2010 Brendan G. Lim, Intridea, Inc., released under the MIT license
 
-Additional modifications and updates by Preston Lee.
+Additional modifications, updates, refactorings etc. by Preston Lee.
