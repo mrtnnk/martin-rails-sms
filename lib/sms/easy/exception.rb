@@ -1,0 +1,2 @@
+class SMSEasyException < StandardError
+end
