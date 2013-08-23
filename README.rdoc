@@ -2,6 +2,9 @@
 
 SMSEasy allows you to send SMS messages from your Ruby application for free using email-to-text services provided by many carriers.
 
+This is largely based on Brendan Lim's sms-fu for older apps. (https://github.com/brendanlim/sms-fu) If you're replacing sms-fu, SMSEasy is very similar, but not identical, and does not support legacy versions of activerecord.
+
+
 == Supported Carriers (US & International): 
 
 Alltel, Ameritech, AT&T, Bell Atlantic, BellSouth Mobility, Beeline(UA), BlueSkyFrog, 
