@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "sms-easy"
   spec.version       = SMSEasy::VERSION
   spec.authors       = ["Brendan G. Lim", "Raimond Garcia", "Preston Lee"]
-  spec.email         = ["conmotto@gmail.com"]
+  spec.email         = ["preston.lee@prestonlee.com"]
   spec.description   = %q{SMSEasy allows you to send text messages to a mobile recipient for free.  It leverages ActionMailer for delivery of text messages through e-mail. Based on the Brendan Lim's sms-easy.}
   spec.summary   = %q{SMSEasy allows you to send text messages to a mobile recipient for free.}
   spec.homepage      = "https://github.com/preston/sms-easy"
@@ -18,10 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "actionmailer", '>= 4.0.0' # Already depends on minitest, so we don't need to add it. :)
+  spec.add_dependency "actionmailer", '>= 4.1.6' # Already depends on minitest, so we don't need to add it. :)
 
-  spec.add_development_dependency "bundler"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency 'bundler', '>= 1.7.3'
+  spec.add_development_dependency 'rake', '10.3.2'
 
 end
 
