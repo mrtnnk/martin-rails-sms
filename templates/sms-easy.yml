@@ -4,7 +4,7 @@ from_address: noreply@example.com
 carriers:
   aio:
     name: 'Aio Wireless'
-    value: @mms.aiowireless.net
+    value: '@mms.aiowireless.net'
   alltel:
     name: Alltel
     value: '@sms.alltel.com'
