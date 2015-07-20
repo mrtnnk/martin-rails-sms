@@ -1,11 +1,13 @@
-= SMSEasy (sms-easy)
+# SMSEasy (sms-easy)
 
 SMSEasy allows you to send SMS messages from your Ruby application for free using email-to-text services provided by many carriers.
 
 This is largely based on Brendan Lim's sms-fu for older apps. (https://github.com/brendanlim/sms-fu) If you're replacing sms-fu, SMSEasy is very similar, but not identical, and does not support legacy versions of activerecord.
 
+Rails 4 integration is supported, though not required. Additionally, SMSEasy works perfectly well with background job processing gems such as Sidekiq and delayed_job.
 
-== Supported Carriers (US & International): 
+
+## Supported Carriers (US & International): 
 
 Alltel, Ameritech, AT&T, Bell Atlantic, BellSouth Mobility, Beeline(UA), BlueSkyFrog, 
 Boost Mobile, BPL Mobile, Cellular South, Claro (Brazil, Nicaragua), Comcast, Du, 
@@ -19,25 +21,24 @@ feature before they are able to receive SMS messages this way.  If one your user
 mentions that they are not receiving their messages, chances are it is due to this
 limitation.  Some of these carriers are include, Mobitel, Etisalat, T-Mobile (Netherlands).
 
-== Requirements
+## Requirements
 
-* SMSEasy requires the use of a recent version of 'action_mailer'. Unlike the older sms-fu gem, *only* action_mailer 4.0.0+ is supported. If you have an older app, please try one of the older variants that supports action_mailer 3 and/or pony email agents.
+* SMSEasy requires the use of a recent version of 'action\_mailer'. Unlike the older sms-fu gem, ***only* action\_mailer 4 is supported**. If you have an older app, please try one of the older variants that supports action\_mailer 3 and/or pony email agents.
 
 
-== Setup Instructions
+## Setup Instructions
 
-* Install the sms-easy gem:
+Install the sms-easy gem:
   
     gem install sms-easy
 
 
   
 
-== Numbers and Carriers
+## Numbers and Carriers
 
-* You have to send in the phone number, without any non-numeric characters.  The
-  phone numbers must be 10 digits in length.  
-* The two required parameters are the phone number and the phone carrier.
+* You'll need 10-digit phone numbers, stripped of any non-numeric characters.
+* As SMSEasy relies on free carrier-specific email-to-SMS gateways, you'll also need to know the carrier of the receiving phone number.
 * Here are some of the default carrier values:
 		
     Alltel Wireless   =>  "alltel"
@@ -50,12 +51,11 @@ limitation.  Some of these carriers are include, Mobitel, Etisalat, T-Mobile (Ne
     Verizon Wireless  =>  "verizon"
     Vodafone Tokyo    =>  "vodafone-jp-tokyo"
 
-* Check sms-easy.yml for a complete list of supported carriers, including international
-  carriers as well.
+* Check sms-easy.yml for a complete list of supported carriers, including international carriers.
 
-== Usage
+## Usage
 
-* Basic Rails Configuration
+###Basic Rails Configuration
 
     # Override the default "from" address with config/initializers/sms-easy.rb
     SMSEasy::Client.config['from_address'] = "noreply@example.com"
@@ -72,9 +72,9 @@ limitation.  Some of these carriers are include, Mobitel, Etisalat, T-Mobile (Ne
     # Deliver a simple message.
     easy.deliver("5551234567", "verizon", "Hey!")  
 
-* Basic Ruby (non-Rails) Use Case (non-Rails)
+### Basic Ruby (non-Rails) Use Case (non-Rails)
 
-    #SMSEasy will use actionmailer's default configuration, which can be overriden if needed:
+    # SMSEasy will use actionmailer's default configuration, which can be overriden if needed:
     ActionMailer::Base.smtp_settings = {
       :address        => 'smtp.example.com',
       # :port           => '587',
@@ -101,31 +101,30 @@ limitation.  Some of these carriers are include, Mobitel, Etisalat, T-Mobile (Ne
 
     easy.deliver("5551234567", "verizon", "Boo-yaa!", :limit => 128)
 
-* You can retrieve just the formatted address to use in your own mailer.
-
+	# You can retrieve just the formatted address to use in your own mailer.
     SMSEasy::Client.sms_address("5558675309","at&t") # => "5558675309@txt.att.net"
 
-== View Helpers (Rails)
+## View Helpers (Rails)
 
-* Include view helpers in application_helper.rb:
+Include view helpers in application_helper.rb:
     
-    module ApplicationHelper
+	module ApplicationHelper
       include SMSEasyHelper
     end
 
-* Retrieve a collection of all carriers
+Retrieve a collection of all carriers
     
     <%= carrier_collection %>
 
-* Display a select box with mobile carriers
+Display a select box with mobile carriers
 
     <%= carrier_select %>
     
-* Display a custom select box with mobile carriers
+Display a custom select box with mobile carriers
 
     <%= carrier_select('user[carrier_name]', "Please choose a carrier") %>
 
-== Special Thanks
+## Special Thanks
 
 I want to thank the following individuals with their help with adding some patches to SMS Fu:
 
