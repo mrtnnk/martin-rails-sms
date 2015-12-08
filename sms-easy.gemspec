@@ -18,9 +18,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "actionmailer", '>= 4.2.3' # Already depends on minitest, so we don't need to add it. :)
+  spec.add_dependency "actionmailer", '>= 4.2.5' # Already depends on minitest, so we don't need to add it. :)
 
-  spec.add_development_dependency 'bundler', '>= 1.10.5'
+  spec.add_development_dependency 'bundler', '>= 1.10.6'
   spec.add_development_dependency 'rake', '10.4.2'
 
 end
