@@ -73,7 +73,7 @@ carriers:
     value: '@msg.telus.com'
   virgin:
     name: Virgin Mobile
-    value: '@vmobl.net'
+    value: '@vmobl.com'
   verizon:
     name: Verizon Wireless
     value: '@vtext.com'
