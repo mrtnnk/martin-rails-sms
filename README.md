@@ -60,7 +60,7 @@ Install the sms-easy gem:
     # Override the default "from" address with config/initializers/sms-easy.rb
     SMSEasy::Client.config['from_address'] = "noreply@example.com"
 
-    # Or, you can completely copy sms-easy.yml to your app (http://github.com/preston/sms-easy/blob/master/templates/sms-easy.yml), change it to your liking, and override the default configuration with:
+    # Or, you can completely copy sms-easy.yml to your app (http://github.com/mrtnnk/martin-rails-sms/blob/master/templates/sms-easy.yml), change it to your liking, and override the default configuration with:
 
     SMSEasy::Client.configure(YAML.load(...))
 
@@ -131,7 +131,3 @@ I want to thank the following individuals with their help with adding some patch
 * Brent Collier (brentmc79)
 * Peter Boling (pboling)
 * Mike (mic)
-
-Copyright (c) 2010 Brendan G. Lim, Intridea, Inc., released under the MIT license
-
-Additional modifications, updates, refactorings etc. by Preston Lee 2013-2017.
